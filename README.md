@@ -11,10 +11,10 @@ Komtek file convert er et lite PHP script som legger på 99000 på gårdsnummere
 
 ## Installation
 
-Install on any webserver with PHP and create a folder called **upload** where phpupload.php is installed. **upload**** needs to be writable.
+Install on any webserver with PHP and create a folder called **upload** where phpupload.php is installed. **upload** needs to be writable.
 
 ## Contact
 
-Audun Wangen
-http://audunwangen.net/
-audun.wangen@gmail.com
+Audun Wangen  
+http://audunwangen.net/  
+audun.wangen@gmail.com  
