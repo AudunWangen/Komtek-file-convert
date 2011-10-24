@@ -35,7 +35,7 @@ if(isset($_POST['submit'])) {
 		fclose($handle);
 		// regex-mønster for å erstatte 00 med 99.
 		$pattern = '/^(\w{5})(\w{2})(.+$)/m';
-		$replacement = '${1}00$3';
+		$replacement = '${1}99$3';
 		
 		// Ny fil for konverterte data
 		$rfile = 'converted_' . $ufile;
