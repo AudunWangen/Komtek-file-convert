@@ -3,6 +3,9 @@
 <head>
 <meta charseth="utf-8" />
 <title>GIVAS Grue filkonvertering</title>
+<style>
+	label {display:block;}
+</style>
 </head>
 <body>
 
@@ -33,9 +36,15 @@ if(isset($_POST['submit'])) {
 		$filedata = fread($handle,filesize($ufilefullpath));
 		// Lukker fil.
 		fclose($handle);
+		if ($_POST['municipality']=='grue') {
 		// regex-mønster for å erstatte 00 med 99.
 		$pattern = '/^(\w{5})(\w{2})(.+$)/m';
 		$replacement = '${1}99$3';
+		} elseif ($_POST['municipality']=='nord-odal') {
+		// regex-mønster for å erstatte 00 med 98.
+		$pattern = '/^(\w{5})(\w{2})(.+$)/m';
+		$replacement = '${1}98$3';
+		}
 		
 		// Ny fil for konverterte data
 		$rfile = 'converted_' . $ufile;
@@ -56,9 +65,15 @@ if(isset($_POST['submit'])) {
 ?>
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+<fieldset>
+<label for="municipality">Kommune</label>
+<input type="radio" name="municipality" value="grue" />Grue<br />
+<input type="radio" name="municipality" value="nord-odal" />Nord-Odal<br />
+</fieldset>
+<fieldset>
 <label for="file">Last opp fil som skal konverteres:</label>
 <input type="file" name="file" id="file" />
-<br />
+</fieldset>
 <input type="submit" name="submit" value="Konverter" />
 </form>
 
